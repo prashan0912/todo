@@ -1,8 +1,10 @@
-//Parent File
+import { useContext } from "react";
 import Todo from "../Todo/Todo";
 import { useState } from "react";
+import TodoContext from '../context/TodoContext'
 
-function TodoList({ list, updateList }) {
+function TodoList() {
+    const { list, setList } = useContext(TodoContext)
     // const [list, setList] = useState([])  // tha par n rakh ke app component ka rakhenge
     return (<>
         <div>
@@ -20,7 +22,7 @@ function TodoList({ list, updateList }) {
                             }
                             return t;
                         });
-                        updateList(updatedList)
+                        setList(updatedList)
                     }}
                 />)}
             </div>
